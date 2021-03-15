@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/03/08 17:35:40 by ldideric      ########   odam.nl          #
+#    Updated: 2021/03/15 18:57:15 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,16 +158,10 @@ re: fclean all
 
 norm:
 	@echo "$(R)Norminette:$(RES)"
-	@norminette $(C_FILES) \
-		./inc/*.h Makefile | grep -c "Error" || printf ""
-	@echo "$(R)Norminette+:$(RES)"
-	@python ~/norminette+/run.py $(C_FILES) \
-		./inc/*.h Makefile | grep -c "Error" || printf ""
+	@norminette $(C_FILES) ./inc/*.h Makefile | grep -c "(line:" || printf ""
+	@norminette $(C_FILES) ./inc/*.h Makefile | grep "KO!" || printf ""
 
 normall:
 	@echo "$(R)Norminette:$(RES)"
 	@norminette $(C_FILES) \
-		./inc/*.h Makefile
-	@echo "$(R)Norminette+:$(RES)"
-	@python ~/norminette+/run.py $(C_FILES) \
 		./inc/*.h Makefile
