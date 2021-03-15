@@ -1,0 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   extras.c                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
+/*   Updated: 2021/03/15 17:14:19 by ldideric      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <checker.h>
+
+int	sorted(t_check *c)
+{
+	int	i;
+	int	tmp;
+
+	i = 0;
+	tmp = 0;
+	while (i < c->len)
+	{
+		if (c->b_[i] == 1)
+			return (0);
+		i++;
+	}
+	tmp = c->a[0];
+	i = 1;
+	while (i < c->len)
+	{
+		if (!tmp < c->a[i])
+			return (0);
+		tmp = c->a[i];
+		i++;
+	}
+	return (1);
+}
+
+int	input_init(t_check *check, int ac, char **av)
+{
+	int	i;
+
+	i = 0;
+	if (ac < 3)
+		return (0);
+	check->ac = ac;
+	check->av = av;
+	check->len = ac - 1;
+	check->a = malloc(sizeof(int) * check->len);
+	check->b = malloc(sizeof(int) * check->len);
+	check->a_ = malloc(sizeof(int) * check->len);
+	check->b_ = malloc(sizeof(int) * check->len);
+	if (check->a == NULL || check->b == NULL
+		|| check->a_ == NULL || check->b_ == NULL)
+		return (0);
+	while (i < check->len)
+	{
+		check->a[i] = ft_atoi(av[i + 1]);
+		check->a_[i] = 1;
+		check->b[i] = 0;
+		check->b_[i] = 0;
+		i++;
+	}
+	return (1);
+}
+
+int	validate_input(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (i < ac)
+	{
+		while (av[i][j])
+		{
+			if (!ft_ismatch(av[i][j], "\t 0123456789-"))
+				return (0);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (1);
+}
