@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strcmp.c                                        :+:    :+:            */
+/*   ex_tra.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/03/15 17:53:18 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/22 15:28:42 by ldideric      ########   odam.nl         */
+/*   Created: 2021/03/22 17:48:15 by ldideric      #+#    #+#                 */
+/*   Updated: 2021/03/22 19:13:16 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <checker.h>
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ex_push_down(t_check *check, int **c__, char ab)
 {
-	size_t	i;
+	int	*c;
+	int	*c_;
+	int	i;
 
-	i = 0;
-	if (s1 == NULL && s2 == NULL)
-		return (0);
-	if (s1 == NULL || s2 == NULL)
-		return (1);
-	while ((unsigned char)s1[i] == (unsigned char)s2[i]
-		&& (unsigned char)s1[i] != '\0')
-		i++;
-	if ((unsigned char)s1[i] != (unsigned char)s2[i])
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-	return (0);
+	c_ = *c__;
+	i = check->len - 1;
+	if (ab == 'a')
+		c = check->a;
+	else
+		c = check->b;
+	while (i > 0 && c_[i] == 0)
+		i--;
+	while (i >= 0)
+	{
+		c[i + 1] = c[i];
+		i--;
+	}
 }

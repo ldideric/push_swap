@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/03/15 18:57:15 by ldideric      ########   odam.nl          #
+#    Updated: 2021/03/22 17:49:19 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC_PATH		=	src
 LIBFT_PATH		=	./$(SRC_PATH)/libft/
 PRINTF_PATH		=	./$(SRC_PATH)/printf/
 GNL_PATH		=	./$(SRC_PATH)/gnl/
+CHECK_PATH		=	./$(SRC_PATH)/checker/
+FUNC_PATH		=	./$(SRC_PATH)/func/
 
 LIBFT_SRC		=	ft_memset.c \
 					ft_bzero.c \
@@ -65,7 +67,8 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_lstsize_bonus.c \
 					ft_ismatch.c \
 					ft_strstr.c \
-					ft_skipchar.c
+					ft_skipchar.c \
+					ft_strcmp.c
 
 PRINTF_SRC		=	ft_printf.c \
 					ft_printf_bonus.c \
@@ -83,18 +86,41 @@ PRINTF_SRC		=	ft_printf.c \
 GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
+CHECK_SRC		=	algorithm.c \
+					extras.c
+
+FUNC_SRC		=	ex_sa.c \
+					ex_sb.c \
+					ex_ss.c \
+					ex_pa.c \
+					ex_pb.c \
+					ex_ra.c \
+					ex_rb.c \
+					ex_rr.c \
+					ex_rra.c \
+					ex_rrb.c \
+					ex_rrr.c \
+					ex_err.c \
+					ex_tra.c
+
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
 GNL_SRC_DIR		=	$(GNL_SRC:%=$(GNL_PATH)%)
+CHECK_SRC_DIR	=	$(CHECK_SRC:%=$(CHECK_PATH)%)
+FUNC_SRC_DIR	=	$(FUNC_SRC:%=$(FUNC_PATH)%)
 
 LIBFT_OBJ_DIR	=	$(LIBFT_SRC_DIR:.c=.o)
 PRINTF_OBJ_DIR	=	$(PRINTF_SRC_DIR:.c=.o)
 GNL_OBJ_DIR		=	$(GNL_SRC_DIR:.c=.o)
+CHECK_OBJ_DIR	=	$(CHECK_SRC_DIR:.c=.o)
+FUNC_OBJ_DIR	=	$(FUNC_SRC_DIR:.c=.o)
 
 C_FILES			=	./$(SRC_PATH)/checker.c \
 					$(LIBFT_SRC_DIR) \
 					$(PRINTF_SRC_DIR) \
-					$(GNL_SRC_DIR)
+					$(GNL_SRC_DIR) \
+					$(CHECK_SRC_DIR) \
+					$(FUNC_SRC_DIR)
 O_FILES			=	$(C_FILES:.c=.o)
 
 W_FLAGS			=	-Wall -Werror -Wextra # -std=c89

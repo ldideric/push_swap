@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 16:42:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/15 18:51:15 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/22 16:23:04 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	specifier(int num, t_check *c)
 {
-	static const t_spec	spec[12] = {
+	static const t_func	spec[12] = {
 		[0] = &ex_err,
 		[1] = &ex_sa,
 		[2] = &ex_sb,
@@ -30,31 +30,32 @@ static void	specifier(int num, t_check *c)
 	};
 
 	spec[num](c);
+	print_arr(c);
 }
 
 static int	line_to_int(char *line)
 {
-	if (ft_strcmp(line, "sa") == 0)
+	if (ft_strcmp(line, "sa\n") == 0)
 		return (1);
-	else if (ft_strcmp(line, "sb") == 0)
+	else if (ft_strcmp(line, "sb\n") == 0)
 		return (2);
-	else if (ft_strcmp(line, "ss") == 0)
+	else if (ft_strcmp(line, "ss\n") == 0)
 		return (3);
-	else if (ft_strcmp(line, "pa") == 0)
+	else if (ft_strcmp(line, "pa\n") == 0)
 		return (4);
-	else if (ft_strcmp(line, "pb") == 0)
+	else if (ft_strcmp(line, "pb\n") == 0)
 		return (5);
-	else if (ft_strcmp(line, "ra") == 0)
+	else if (ft_strcmp(line, "ra\n") == 0)
 		return (6);
-	else if (ft_strcmp(line, "rb") == 0)
+	else if (ft_strcmp(line, "rb\n") == 0)
 		return (7);
-	else if (ft_strcmp(line, "rr") == 0)
+	else if (ft_strcmp(line, "rr\n") == 0)
 		return (8);
-	else if (ft_strcmp(line, "rra") == 0)
+	else if (ft_strcmp(line, "rra\n") == 0)
 		return (9);
-	else if (ft_strcmp(line, "rrb") == 0)
+	else if (ft_strcmp(line, "rrb\n") == 0)
 		return (10);
-	else if (ft_strcmp(line, "rrr") == 0)
+	else if (ft_strcmp(line, "rrr\n") == 0)
 		return (11);
 	else
 		return (0);
@@ -64,11 +65,11 @@ void	algorithm(t_check *check)
 {
 	char	*line;
 
-	line = NULL;
+	line = malloc(sizeof(char) * 4);
 	while (!sorted(check))
 	{
-		read(1, line, 256);
-		specifier(line_to_int(line), check);
+		if (read(STDIN_FILENO, line, 4) > 0)
+			specifier(line_to_int(line), check);
 	}
-	ft_printf("OK");
+	ft_printf("OK\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/15 17:14:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/22 16:56:00 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	sorted(t_check *c)
 	i = 1;
 	while (i < c->len)
 	{
-		if (!tmp < c->a[i])
+		if (!(tmp < c->a[i]))
 			return (0);
 		tmp = c->a[i];
 		i++;
@@ -84,4 +84,17 @@ int	validate_input(int ac, char **av)
 		i++;
 	}
 	return (1);
+}
+
+void	print_arr(t_check *c)
+{
+	int	i;
+
+	i = 0;
+	while (i < c->len)
+	{
+		ft_printf("%5i|(%i)|%5i|(%i)\n", c->a[i], c->a_[i], c->b[i], c->b_[i]);
+		i++;
+	}
+	ft_printf("\n");
 }
