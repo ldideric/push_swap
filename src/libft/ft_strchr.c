@@ -3,18 +3,18 @@
 /*                                                        ::::::::            */
 /*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <marvin@codam.nl>                   +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:20 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/24 22:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:21:54 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char		*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s == NULL)

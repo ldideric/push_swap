@@ -6,17 +6,18 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/03/27 16:59:13 by ldideric      ########   odam.nl          #
+#    Updated: 2021/03/29 12:49:05 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	checker
+NAME			=	push_swap
 
 SRC_PATH		=	src
 LIBFT_PATH		=	./$(SRC_PATH)/libft/
 PRINTF_PATH		=	./$(SRC_PATH)/printf/
 GNL_PATH		=	./$(SRC_PATH)/gnl/
 CHECK_PATH		=	./$(SRC_PATH)/checker/
+PUSH_PATH		=	./$(SRC_PATH)/push_swap/
 FUNC_PATH		=	./$(SRC_PATH)/func/
 
 LIBFT_SRC		=	ft_memset.c \
@@ -87,8 +88,10 @@ GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
 CHECK_SRC		=	reader.c \
-					extras.c \
 					checker.c
+					
+PUSH_SRC		=	algorithm.c \
+					push_swap.c
 
 FUNC_SRC		=	ex_sa.c \
 					ex_sb.c \
@@ -108,20 +111,25 @@ LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
 GNL_SRC_DIR		=	$(GNL_SRC:%=$(GNL_PATH)%)
 CHECK_SRC_DIR	=	$(CHECK_SRC:%=$(CHECK_PATH)%)
+PUSH_SRC_DIR	=	$(PUSH_SRC:%=$(PUSH_PATH)%)
 FUNC_SRC_DIR	=	$(FUNC_SRC:%=$(FUNC_PATH)%)
 
 LIBFT_OBJ_DIR	=	$(LIBFT_SRC_DIR:.c=.o)
 PRINTF_OBJ_DIR	=	$(PRINTF_SRC_DIR:.c=.o)
 GNL_OBJ_DIR		=	$(GNL_SRC_DIR:.c=.o)
 CHECK_OBJ_DIR	=	$(CHECK_SRC_DIR:.c=.o)
+PUSH_OBJ_DIR	=	$(PUSH_SRC_DIR:.c=.o)
 FUNC_OBJ_DIR	=	$(FUNC_SRC_DIR:.c=.o)
 
-C_FILES			=	$(LIBFT_SRC_DIR) \
+C_FILES			=	$(SRC_PATH)/extras.c \
+					$(LIBFT_SRC_DIR) \
 					$(PRINTF_SRC_DIR) \
 					$(GNL_SRC_DIR) \
-					$(CHECK_SRC_DIR) \
 					$(FUNC_SRC_DIR)
 O_FILES			=	$(C_FILES:.c=.o)
+
+CHECK_FILES		=	$(C_FILES) $(CHECK_SRC_DIR)
+PUSH_FILES		=	$(C_FILES) $(PUSH_SRC_DIR)
 
 W_FLAGS			=	-Wall -Werror -Wextra # -std=c89
 LIB_FLAGS		=	-Iinc
@@ -166,9 +174,12 @@ X		= 1
 all: $(NAME)
 
 $(NAME):
-	@echo "$(P)Compiling checker$(O)"
-	@gcc $(C_FILES) $(FLAGS) $(EXTRAS) -o $(NAME)
-	@echo "gcc $\(FILES).c $(FLAGS) $(EXTRAS) -o $(NAME)"
+	# @echo "$(P)Compiling checker$(O)"
+	# @gcc $(CHECK_FILES) $(FLAGS) -o checker
+	# @echo "gcc $\(FILES).c $(FLAGS) -o checker"
+	@echo "$(P)Compiling push_swap$(O)"
+	@gcc $(PUSH_FILES) $(FLAGS) -o $(NAME)
+	@echo "gcc $\(FILES).c $(FLAGS) -o $(NAME)"
 	@echo "$(G) > Done compiling!$(RES)\n"
 
 clean:
@@ -184,10 +195,9 @@ re: fclean all
 
 norm:
 	@echo "$(R)Norminette:$(RES)"
-	@norminette $(C_FILES) ./inc/*.h Makefile | grep -c "(line:" || printf ""
-	@norminette $(C_FILES) ./inc/*.h Makefile | grep "KO!" || printf ""
+	@norminette $(C_FILES) ./inc/*.h | grep -c "(line:" || printf ""
+	@norminette $(C_FILES) ./inc/*.h | grep "KO!" || printf ""
 
 normall:
 	@echo "$(R)Norminette:$(RES)"
-	@norminette $(C_FILES) \
-		./inc/*.h Makefile
+	@norminette $(C_FILES) ./inc/*.h

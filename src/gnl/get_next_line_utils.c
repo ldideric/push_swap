@@ -6,15 +6,15 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/09 13:16:32 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/25 14:25:53 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:24:37 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			ft_gnl_len(char *str, int a)
+int	ft_gnl_len(char *str, int a)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[0] == '\0' && a == TRUE)
@@ -26,7 +26,7 @@ int			ft_gnl_len(char *str, int a)
 	return (i);
 }
 
-char		*ft_gnl_strjoin(char *s1, char *s2)
+char	*ft_gnl_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -51,7 +51,7 @@ char		*ft_gnl_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char		*ft_gnl_strdup(char *s1, int a)
+char	*ft_gnl_strdup(char *s1, int a)
 {
 	char	*str;
 	int		i;
@@ -73,7 +73,7 @@ char		*ft_gnl_strdup(char *s1, int a)
 	return (str);
 }
 
-char		*clr_to_nl(char *buffer)
+char	*clr_to_nl(char *buffer)
 {
 	char	*new;
 	int		i;
@@ -88,7 +88,7 @@ char		*clr_to_nl(char *buffer)
 	return (new);
 }
 
-void		*ft_gnl_calloc(size_t count)
+void	*ft_gnl_calloc(size_t count)
 {
 	char	*str;
 	int		i;

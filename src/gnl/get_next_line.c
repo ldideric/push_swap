@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/09 12:59:04 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/25 14:25:07 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:24:18 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@ static int	checks(int fd, char *buffer)
 		if (ret == -1)
 			return (ret);
 		buffer[ret] = '\0';
-		ret = (ret > 0) ? 1 : ret;
+		if (ret > 0)
+			ret = 1;
 	}
 	return (ret);
 }
 
 static char	*eachline(char **buffer, char *str, int ret)
 {
-	char *new;
+	char	*new;
 
 	if (*buffer[0] == '\0')
 	{
@@ -59,7 +60,7 @@ static char	*eachline(char **buffer, char *str, int ret)
 	return (str);
 }
 
-int			free_all(t_fd *list)
+int	free_all(t_fd *list)
 {
 	free(list->str);
 	list->str = NULL;
@@ -68,7 +69,7 @@ int			free_all(t_fd *list)
 	return (-1);
 }
 
-char		*gnl_expanded(t_fd *filed, int fd, int *ret)
+char	*gnl_expanded(t_fd *filed, int fd, int *ret)
 {
 	while (filed->str[ft_gnl_len(filed->str, TRUE) - 1] != '\n')
 	{
@@ -88,7 +89,7 @@ char		*gnl_expanded(t_fd *filed, int fd, int *ret)
 	return (filed->str);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static t_fd		filed[4096];
 	int				ret;

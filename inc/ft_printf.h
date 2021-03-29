@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 17:15:25 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/08 16:54:47 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:30:52 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-typedef struct	s_arg
+typedef struct s_arg
 {
 	int			prec;
 	int			intprec;

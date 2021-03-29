@@ -7,8 +7,16 @@
 		{
 			"type": "lldb",
 			"request": "launch",
-			"name": "Debug",
+			"name": "Debug checker",
 			"program": "${workspaceFolder}/checker",
+			"args": ["3", "6", "7", "1"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug push_swap",
+			"program": "${workspaceFolder}/push_swap",
 			"args": ["3", "6", "7", "1"],
 			"cwd": "${workspaceFolder}"
 		}

@@ -6,15 +6,15 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:43:08 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:49:42 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:27:37 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_arg		*ft_argnew(void)
+t_arg	*ft_argnew(void)
 {
-	t_arg *new;
+	t_arg	*new;
 
 	new = malloc(sizeof(t_arg));
 	if (!new)
@@ -29,9 +29,9 @@ t_arg		*ft_argnew(void)
 	return (new);
 }
 
-int			ft_numlen(char *str)
+int	ft_numlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_isdigit(str[i]))
@@ -39,9 +39,9 @@ int			ft_numlen(char *str)
 	return (i);
 }
 
-int			ft_intchars(long long a, int base)
+int	ft_intchars(long long a, int base)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (a < 0)
@@ -60,7 +60,7 @@ int			ft_intchars(long long a, int base)
 	return (i);
 }
 
-int			ft_freevoid(void *item)
+int	ft_freevoid(void *item)
 {
 	free(item);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 14:30:01 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/24 22:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:21:35 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t dlen;
-	size_t slen;
+	size_t	dlen;
+	size_t	slen;
 
 	if (!dst || !src)
 		return (0);

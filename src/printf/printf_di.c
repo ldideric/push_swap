@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/12 17:05:39 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:49:56 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:28:30 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static int	printf_di_ext(char *s, t_arg list, int i)
 	return (i);
 }
 
-int			printf_di(va_list ap, t_arg list)
+int	printf_di(va_list ap, t_arg list)
 {
 	char	*str;
 	int		i;

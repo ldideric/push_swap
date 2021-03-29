@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 13:45:17 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:49:54 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:28:40 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	printf_p_width(t_arg list, char *s)
 {
 	int	len;
-	int i;
+	int	i;
 
 	i = 0;
 	len = (list.width > (int)ft_strlen(s) + 2) ?
@@ -49,7 +49,7 @@ static int	printf_p_str(char *s, t_arg list)
 	return (i);
 }
 
-int			printf_p(va_list ap, t_arg list)
+int	printf_p(va_list ap, t_arg list)
 {
 	char	*str;
 	int		len;

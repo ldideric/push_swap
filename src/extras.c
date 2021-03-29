@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:19:27 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	print_arr(t_check *c)
 	ft_printf("\n");
 }
 
-int		err_print(char *s)
+int	err_print(char *s)
 {
 	int	i;
 

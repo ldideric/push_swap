@@ -6,15 +6,15 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/06 14:27:23 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/24 22:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:35:21 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static int		ft_charcnt(long n)
+static int	ft_charcnt(long n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n < 0)
@@ -30,7 +30,7 @@ static int		ft_charcnt(long n)
 	return (i + 1);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long	i;
 	int		digits;

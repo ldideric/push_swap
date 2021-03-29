@@ -6,13 +6,13 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 14:01:17 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/02 17:04:31 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:31:39 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int				i;
 	unsigned long	num;

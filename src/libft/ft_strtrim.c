@@ -6,15 +6,15 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/05 16:31:48 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/24 22:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:32:51 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static int		ft_isset(char c, const char *set)
+static int	ft_isset(char c, const char *set)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -26,9 +26,9 @@ static int		ft_isset(char c, const char *set)
 	return (0);
 }
 
-static char		*ft__strcpy(const char *src, char *dst, int j)
+static char	*ft__strcpy(const char *src, char *dst, int j)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0' && j - 1 > i)
@@ -39,7 +39,7 @@ static char		*ft__strcpy(const char *src, char *dst, int j)
 	return (dst);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;

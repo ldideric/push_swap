@@ -6,16 +6,16 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 17:29:16 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/02 20:58:50 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:22:32 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static int		str_len_skipchar(char *s, char c)
+static int	str_len_skipchar(char *s, char c)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = 0;
@@ -28,7 +28,7 @@ static int		str_len_skipchar(char *s, char c)
 	return (ft_strlen(s) - len + 1);
 }
 
-char			*ft_skipchar(char *s, char c)
+char	*ft_skipchar(char *s, char c)
 {
 	char	*new;
 	int		j;

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/03 02:51:47 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:50:02 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:29:26 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	printf_s_str(char *s, t_arg list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (list.prec)
@@ -36,8 +36,8 @@ static int	printf_s_str(char *s, t_arg list)
 
 static int	printf_s_width(char *s, t_arg list, char c)
 {
-	int len;
-	int slen;
+	int	len;
+	int	slen;
 
 	slen = ft_strlen(s);
 	if (list.prec)

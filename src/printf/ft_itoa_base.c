@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/06 10:41:54 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:49:39 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:25:53 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*itoa_base(char *str, long long a, int base)
 {
-	int i;
+	int	i;
 
 	i = ft_intchars(a, base) - 1;
 	if (a == 0)
@@ -38,7 +38,7 @@ static char	*itoa_base(char *str, long long a, int base)
 	return (str);
 }
 
-char		*ft_itoa_base(long long a, int base, int big)
+char	*ft_itoa_base(long long a, int base, int big)
 {
 	char	*str;
 	int		i;

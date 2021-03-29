@@ -6,13 +6,13 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/16 14:42:02 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:49:58 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:29:18 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			printf_per(va_list ap, t_arg list)
+int	printf_per(va_list ap, t_arg list)
 {
 	int		len;
 	char	c;

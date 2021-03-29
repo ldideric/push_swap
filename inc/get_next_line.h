@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/22 13:56:19 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/25 14:25:39 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:30:46 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef struct	s_fd
+typedef struct s_fd
 {
 	int			fd;
 	char		*str;

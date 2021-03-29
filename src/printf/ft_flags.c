@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/03 01:38:37 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/10/06 00:58:13 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:25:31 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_spec	ft_specifier(char c)
 {
-	static const t_spec spec[128] = {
+	static const t_spec	spec[128] = {
 		['c'] = &printf_c,
 		['s'] = &printf_s,
 		['p'] = &printf_p,
@@ -29,9 +29,9 @@ static t_spec	ft_specifier(char c)
 	return (spec[(int)c]);
 }
 
-static int		ft_flagwp(char *str, t_arg *list, int a)
+static int	ft_flagwp(char *str, t_arg *list, int a)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (a == 0)
@@ -57,7 +57,7 @@ static int		ft_flagwp(char *str, t_arg *list, int a)
 
 static t_arg	ft_flagcheck(char *str, t_arg list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] == '0')
@@ -101,7 +101,7 @@ static t_arg	ft_prewid(t_arg list, va_list ap)
 	return (list);
 }
 
-int				ft_flags(char *str, va_list ap)
+int	ft_flags(char *str, va_list ap)
 {
 	int		i;
 	t_arg	*list;
@@ -111,8 +111,8 @@ int				ft_flags(char *str, va_list ap)
 	list = ft_argnew();
 	if (ft_isalpha(str[i]) == 0)
 		*list = ft_flagcheck(str + i, *list);
-	while (str[i] == '-' || str[i] == '.' ||
-	str[i] == '*' || ft_isdigit(str[i]))
+	while (str[i] == '-' || str[i] == '.'
+		|| str[i] == '*' || ft_isdigit(str[i]))
 		i++;
 	list[0].hex = (str[i] == 'X') ? 1 : list[0].hex;
 	*list = ft_prewid(*list, ap);

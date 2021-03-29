@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/08 17:08:45 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/27 17:48:36 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 13:18:51 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ typedef struct s_check
 
 typedef struct s_data
 {
-	int			tries;
+	long long	tries;
 	int			work_tries;
 	char		**short_list;
+	char		*temp;
+	int			i;
 	int			max_commands;
 }				t_data;
 
@@ -46,6 +48,9 @@ int				input_init(t_check *check, int ac, char **av);
 
 void			reader(t_check *check);
 int				sorted(t_check *c);
+
+
+void			algorithm(t_check *check);
 
 int				err_print(char *s);
 

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 13:48:42 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/07/02 19:50:04 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:29:57 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	printf_x_str(char *s, t_arg list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (list.prec > (int)ft_strlen(s))
@@ -81,7 +81,7 @@ static int	printf_x_ext(va_list ap, t_arg list)
 	return (i);
 }
 
-int			printf_x(va_list ap, t_arg list)
+int	printf_x(va_list ap, t_arg list)
 {
 	char	*s;
 	int		i;

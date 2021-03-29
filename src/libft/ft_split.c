@@ -6,13 +6,13 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/15 14:01:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/09/24 22:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/29 10:22:19 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static char		*ft_strcut(const char *s, int index, char c)
+static char	*ft_strcut(const char *s, int index, char c)
 {
 	char	*str;
 	int		i;
@@ -33,10 +33,10 @@ static char		*ft_strcut(const char *s, int index, char c)
 	return (str);
 }
 
-static int		ft_words(char const *s, char c)
+static int	ft_words(char const *s, char c)
 {
-	int i;
-	int words;
+	int	i;
+	int	words;
 
 	i = 0;
 	words = 0;
@@ -56,9 +56,9 @@ static int		ft_words(char const *s, char c)
 	return (words);
 }
 
-static char		**ft_strclear(char **array)
+static char	**ft_strclear(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])
@@ -70,7 +70,7 @@ static char		**ft_strclear(char **array)
 	return (NULL);
 }
 
-static char		**split_ext(char **array, const char *s, char c)
+static char	**split_ext(char **array, const char *s, char c)
 {
 	int		i;
 	int		str_cntr;
@@ -95,7 +95,7 @@ static char		**split_ext(char **array, const char *s, char c)
 	return (array);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**array;
 
