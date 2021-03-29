@@ -38,9 +38,9 @@
 				"command": "make re DEBUG=1",
 			},
 			{
-				"name": "make bonus",
+				"name": "make + run",
 				"color": "Lightpink",
-				"command": "make bonus",
+				"command": "make re DEBUG=1 && ./checker 3 6 7 1",
 			},
 			{
 				"name": "RUN",

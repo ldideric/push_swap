@@ -6,11 +6,11 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/22 16:56:00 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 
 int	sorted(t_check *c)
 {
@@ -97,4 +97,17 @@ void	print_arr(t_check *c)
 		i++;
 	}
 	ft_printf("\n");
+}
+
+int		err_print(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (0);
 }

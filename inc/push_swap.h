@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.h                                          :+:    :+:            */
+/*   push_swap.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/08 17:08:45 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/22 17:49:01 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/27 17:48:36 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <libft.h>
 # include <ft_printf.h>
@@ -31,17 +31,25 @@ typedef struct s_check
 	int			*b_;
 }				t_check;
 
+typedef struct s_data
+{
+	int			tries;
+	int			work_tries;
+	char		**short_list;
+	int			max_commands;
+}				t_data;
+
 typedef void	(*t_func)(t_check *c);
 
 int				validate_input(int ac, char **av);
 int				input_init(t_check *check, int ac, char **av);
 
-void			algorithm(t_check *check);
+void			reader(t_check *check);
 int				sorted(t_check *c);
 
+int				err_print(char *s);
 
 void			print_arr(t_check *c);
-
 
 void			ex_err(t_check *c);
 void			ex_sa(t_check *c);

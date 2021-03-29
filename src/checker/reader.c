@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   algorithm.c                                        :+:    :+:            */
+/*   reader.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 16:42:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/22 16:23:04 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 
 static void	specifier(int num, t_check *c)
 {
@@ -30,7 +30,6 @@ static void	specifier(int num, t_check *c)
 	};
 
 	spec[num](c);
-	print_arr(c);
 }
 
 static int	line_to_int(char *line)
@@ -61,15 +60,26 @@ static int	line_to_int(char *line)
 		return (0);
 }
 
-void	algorithm(t_check *check)
+void	reader(t_check *check)
 {
 	char	*line;
+	int		ret;
 
-	line = malloc(sizeof(char) * 4);
+	line = malloc(sizeof(char) * 5);
 	while (!sorted(check))
 	{
-		if (read(STDIN_FILENO, line, 4) > 0)
-			specifier(line_to_int(line), check);
+		ret = read(STDIN_FILENO, line, 5);
+		if (ret == -1 || ret > 4)
+			return ((void)err_print("Error\n"));
+		if (ret > 0)
+		{
+			ret = line_to_int(line);
+			if (ret != 0)
+				specifier(ret, check);
+			else
+				return ((void)err_print("Error\n"));
+		}
 	}
+	free(line);
 	ft_printf("OK\n");
 }

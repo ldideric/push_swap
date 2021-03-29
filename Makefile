@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/03/22 17:49:19 by ldideric      ########   odam.nl          #
+#    Updated: 2021/03/27 16:59:13 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,8 +86,9 @@ PRINTF_SRC		=	ft_printf.c \
 GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
-CHECK_SRC		=	algorithm.c \
-					extras.c
+CHECK_SRC		=	reader.c \
+					extras.c \
+					checker.c
 
 FUNC_SRC		=	ex_sa.c \
 					ex_sb.c \
@@ -115,8 +116,7 @@ GNL_OBJ_DIR		=	$(GNL_SRC_DIR:.c=.o)
 CHECK_OBJ_DIR	=	$(CHECK_SRC_DIR:.c=.o)
 FUNC_OBJ_DIR	=	$(FUNC_SRC_DIR:.c=.o)
 
-C_FILES			=	./$(SRC_PATH)/checker.c \
-					$(LIBFT_SRC_DIR) \
+C_FILES			=	$(LIBFT_SRC_DIR) \
 					$(PRINTF_SRC_DIR) \
 					$(GNL_SRC_DIR) \
 					$(CHECK_SRC_DIR) \
@@ -177,7 +177,7 @@ clean:
 	@rm -rf $(O_FILES)
 
 fclean: clean
-	rm -rf $(NAME) 
+	rm -rf $(NAME)
 	@echo "$(G) > Done Cleaning!$(RES)\n"
 
 re: fclean all

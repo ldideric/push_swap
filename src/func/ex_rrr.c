@@ -6,13 +6,14 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/22 13:49:12 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/22 13:49:37 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 
 void	ex_rrr(t_check *c)
 {
-	(void)c;
+	ex_rra(c);
+	ex_rrb(c);
 }
