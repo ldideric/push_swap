@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/03/29 12:49:05 by ldideric      ########   odam.nl          #
+#    Updated: 2021/04/02 16:09:12 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ CHECK_SRC		=	reader.c \
 PUSH_SRC		=	algorithm.c \
 					push_swap.c
 
-FUNC_SRC		=	ex_sa.c \
+FUNC_SRC		=	specifier.c \
+					ex_sa.c \
 					ex_sb.c \
 					ex_ss.c \
 					ex_pa.c \
@@ -174,9 +175,9 @@ X		= 1
 all: $(NAME)
 
 $(NAME):
-	# @echo "$(P)Compiling checker$(O)"
-	# @gcc $(CHECK_FILES) $(FLAGS) -o checker
-	# @echo "gcc $\(FILES).c $(FLAGS) -o checker"
+	@echo "$(P)Compiling checker$(O)"
+	@gcc $(CHECK_FILES) $(FLAGS) -o checker
+	@echo "gcc $\(FILES).c $(FLAGS) -o checker"
 	@echo "$(P)Compiling push_swap$(O)"
 	@gcc $(PUSH_FILES) $(FLAGS) -o $(NAME)
 	@echo "gcc $\(FILES).c $(FLAGS) -o $(NAME)"
@@ -188,7 +189,7 @@ clean:
 	@rm -rf $(O_FILES)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf checker $(NAME)
 	@echo "$(G) > Done Cleaning!$(RES)\n"
 
 re: fclean all

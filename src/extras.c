@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/29 10:19:27 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/02 14:16:39 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,34 @@ int	err_print(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
+	return (0);
+}
+
+long long	power(int base, int exp)
+{
+	long long	result;
+
+	result = 1;
+	while (exp != 0)
+	{
+		result *= base;
+		--exp;
+	}
+	return (result);
+}
+
+int	length_arr(char **old, char *new)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (new[i] != '0')
+		i++;
+	while (old[j][0] != '0')
+		j++;
+	if (i <= j)
+		return (1);
 	return (0);
 }

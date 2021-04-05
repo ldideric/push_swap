@@ -6,23 +6,26 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/27 17:16:25 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/29 13:27:09 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/02 14:24:38 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
 #include <stdio.h>
+#include <locale.h>
 
 int	init_push(t_data *d, t_check *c)
 {
 	int	i;
 
+	setlocale(LC_NUMERIC, ""); //remove
 	i = 0;
 	d->i = -1;
 	d->tries = 0;
 	d->work_tries = 0;
 	d->max_commands = c->len + 5;
+	d->combinations = power(11, d->max_commands);
 	d->short_list = malloc(sizeof(char *) * d->max_commands);
 	d->temp = malloc(sizeof(char) * d->max_commands + 1);
 	if (d->short_list == NULL || d->temp == NULL)
@@ -33,6 +36,7 @@ int	init_push(t_data *d, t_check *c)
 		d->short_list[i] = malloc(sizeof(char) * 5);
 		if (d->short_list[i] == NULL)
 			return (err_print("Error\n"));
+		d->short_list[i][0] = '0';
 		i++;
 	}
 	return (1);
@@ -40,13 +44,39 @@ int	init_push(t_data *d, t_check *c)
 
 void	try_option(t_data *d, t_check *c)
 {
-	// static char	*list[11] = {"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n",
-	// 	"rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
+	static char	*list[11] = {"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n",
+		"rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
+	t_check		c2;
+	int			i;
 
+	i = 0;
+	input_init(&c2, c->ac, c->av);
 	d->tries++;
-	if (d->tries % 1000000 == 0)
-		printf("%lld\n", d->tries);
-	c->len = 0;
+	if (d->tries % 100000000 == 0)
+		printf("%'lld of %'lld estimate tries\n", d->tries, d->combinations);
+	while (d->temp[i] != '0')
+	{
+		specifier(line_to_int(list[d->temp[i] - 'a']), &c2);
+		i++;
+	}
+	if (sorted(&c2) == 1)		///what is happening plz
+	{
+		i = 0;
+		d->work_tries++;
+		if (length_arr(d->short_list, d->temp) == 1)
+		{
+			while (d->temp[i] != '0')
+			{
+				d->short_list[i] = list[d->temp[i] - 'a'];
+				i++;
+			}
+			d->short_list[i][0] = '0';
+		}
+	}
+	free(c2.a);
+	free(c2.a_);
+	free(c2.b);
+	free(c2.b_);
 }
 
 void	brute_force(t_data *d, t_check *c)
@@ -60,10 +90,7 @@ void	brute_force(t_data *d, t_check *c)
 	while (i < 11 && d->i < d->max_commands)
 	{
 		d->temp[d->i] = list[i];
-		// try_option(d, c);
-		d->tries++;
-		if (d->tries % 100000000 == 0)
-			printf("%lld tried\n", d->tries);
+		try_option(d, c);
 		if (d->i < d->max_commands)
 			brute_force(d, c);
 		i++;
@@ -95,9 +122,17 @@ void	brute_force(t_data *d, t_check *c)
 void	algorithm(t_check *check)
 {
 	t_data		data;
+	int			i;
 
+	i = 0;
 	if (init_push(&data, check) == 0)
 		return ;
 	brute_force(&data, check);
-	printf("%lld", data.tries);
+	printf("%'lld tries done\n%'d functioning combinations\n", data.tries, data.work_tries);
+	printf("shortest try:\n");
+	while (data.short_list[i][0] != '0')
+	{
+		printf("%s", data.short_list[i]);
+		i++;
+	}
 }

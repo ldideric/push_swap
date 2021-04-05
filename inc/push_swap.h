@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/08 17:08:45 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/29 13:18:51 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/02 14:08:06 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data
 	char		*temp;
 	int			i;
 	int			max_commands;
+	long long	combinations;
 }				t_data;
 
 typedef void	(*t_func)(t_check *c);
@@ -49,6 +50,11 @@ int				input_init(t_check *check, int ac, char **av);
 void			reader(t_check *check);
 int				sorted(t_check *c);
 
+void			specifier(int num, t_check *c);
+int				line_to_int(char *line);
+
+long long		power(int base, int exp);
+int				length_arr(char **old, char *new);
 
 void			algorithm(t_check *check);
 
