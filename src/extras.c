@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/04/02 14:16:39 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/05 13:57:06 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,16 @@ int	length_arr(char **old, char *new)
 		i++;
 	while (old[j][0] != '0')
 		j++;
-	if (i <= j)
+	if (i < j)
 		return (1);
 	return (0);
+}
+
+int	possible_comm(char c)
+{
+	if (c == 'b' || c == 'c' || c == 'd' || c == 'g'
+		|| c == 'h' || c == 'j' || c == 'k')
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/22 13:48:51 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/05 12:46:46 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ex_pb(t_check *c)
 	ex_push_down(c, &c->b_, 'b');
 	c->b[0] = c->a[0];
 	i = 0;
-	while (c->a_[i + 1] == 1)
+	while (i + 1 != c->len && c->a_[i + 1] == 1)
 	{
 		c->a[i] = c->a[i + 1];
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/22 13:48:56 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/03/27 17:01:33 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/05 12:51:59 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ex_rb(t_check *c)
 	if (c->b_[1] == 0)
 		return ;
 	tmp = c->b[0];
-	while (c->b_[i] == 1)
+	while (i != c->len && c->b_[i] == 1)
 	{
 		c->b[i - 1] = c->b[i];
 		i++;
