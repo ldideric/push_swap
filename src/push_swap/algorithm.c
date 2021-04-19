@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/27 17:16:25 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/04/05 15:57:36 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/04/19 14:08:57 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ int	init_push(t_data *d, t_check *c)
 	return (1);
 }
 
+void	merge_sort(t_data *d, t_check *c)
+{
+	if (sorted(c) == 1)
+		return ;
+	//split in two, then merge sort
+}
+
 void	algorithm(t_check *check)
 {
 	t_data		data;
@@ -47,7 +54,7 @@ void	algorithm(t_check *check)
 	i = 0;
 	if (init_push(&data, check) == 0)
 		return ;
-	brute_force(&data, check);
+	merge_sort(&data, check);
 	printf("%'lld tries done\n%'d functioning combinations\n", data.tries, data.work_tries);
 	printf("shortest try of %d command(s):\n", data.short_len);
 	while (data.short_list[i][0] != '0')
