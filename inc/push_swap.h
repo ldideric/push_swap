@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/08 17:08:45 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/04/05 13:20:02 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/05/25 16:04:33 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,10 @@ typedef struct s_check
 
 typedef struct s_data
 {
-	long long	tries;
-	long long	combinations;
-	int			work_tries;
-	char		**short_list;
-	int			short_len;
-	char		*temp;
-	int			i;
-	int			max_commands;
+	int			*fixed;
+	int			mid;
+	int			mid_i;
+	int			mid_step;
 }				t_data;
 
 typedef void	(*t_func)(t_check *c);
