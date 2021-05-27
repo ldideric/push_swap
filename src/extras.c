@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/15 17:12:38 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/04/05 13:57:06 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/05/27 14:05:56 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	print_arr(t_check *c)
 	int	i;
 
 	i = 0;
+	ft_printf("\n\e[1;1H\e[2J");
 	while (i < c->len)
 	{
 		ft_printf("%5i|(%i)|%5i|(%i)\n", c->a[i], c->a_[i], c->b[i], c->b_[i]);

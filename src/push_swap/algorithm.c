@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/27 17:16:25 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/05/25 17:34:25 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/05/27 14:30:24 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	use_func(char *func, t_check *c)
 {
 	ft_printf("%s", func);
 	specifier(line_to_int(func), c);
+	print_arr(c);
 }
 
 void	find_mid(t_data *d, t_check *c)
@@ -63,12 +64,16 @@ void	quick_sort(t_data *d, t_check *c)
 	i = 0;
 	while (sorted(c) == 0)
 	{
+		print_arr(c);
 		find_mid(d, c);
-		while (c->a_[d->mid_i + 2] != '1')
+		while (c->a_[d->mid_i + 1] == 1)
 		{
-			if (c->a[i] < d->mid)
+			if (c->a[i] <= d->mid)
+			{
 				use_func("pb\n", c); // fix infinite loop
-			use_func("ra\n", c);
+			}
+			else
+				use_func("ra\n", c);
 		}
 	}
 }
