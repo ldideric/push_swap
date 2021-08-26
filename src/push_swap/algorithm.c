@@ -6,19 +6,27 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/27 17:16:25 by ldideric      #+#    #+#                 */
-/*   Updated: 2021/05/27 14:30:24 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/08/26 17:38:15 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	use_func(char *func, t_check *c)
+{
+	ft_printf("%s", func);
+	specifier(line_to_int(func), c);
+	print_arr(c);
+}
 
 int	init_push(t_data *d, t_check *c)
 {
 	int	i;
 
 	i = 0;
-	d->mid = 0;
-	d->mid_i = 0;
+	d->i = c->len - 1;
+	d->less = 0;
+	d->less_i = 0;
 	d->mid_step = 0;
 	d->fixed = malloc(sizeof(int) * c->len);
 	if (d->fixed == NULL)
@@ -29,53 +37,6 @@ int	init_push(t_data *d, t_check *c)
 		i++;
 	}
 	return (1);
-}
-
-void	use_func(char *func, t_check *c)
-{
-	ft_printf("%s", func);
-	specifier(line_to_int(func), c);
-	print_arr(c);
-}
-
-void	find_mid(t_data *d, t_check *c)
-{
-	if (d->mid_step == 0)
-	{
-		d->mid_step = c->len / 2;
-		d->mid_i = d->mid_step;
-	}
-	else
-	{
-		d->mid_step = d->mid_step / 2;
-		if (d->mid_i % 2 == 0)
-			d->mid_i = d->mid_i + d->mid_step;
-		else
-			d->mid_i = d->mid_i + d->mid_step + 1;
-	}
-	d->mid_i--;
-	d->mid = d->fixed[d->mid_i];
-}
-
-void	quick_sort(t_data *d, t_check *c)
-{
-	int	i;
-
-	i = 0;
-	while (sorted(c) == 0)
-	{
-		print_arr(c);
-		find_mid(d, c);
-		while (c->a_[d->mid_i + 1] == 1)
-		{
-			if (c->a[i] <= d->mid)
-			{
-				use_func("pb\n", c); // fix infinite loop
-			}
-			else
-				use_func("ra\n", c);
-		}
-	}
 }
 
 void	sort_list(t_data *d, t_check *c)
