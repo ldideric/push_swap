@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/06 14:04:07 by ldideric      #+#    #+#                  #
-#    Updated: 2021/05/25 17:13:41 by ldideric      ########   odam.nl          #
+#    Updated: 2021/08/26 19:18:45 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,9 @@ CHECK_SRC		=	reader.c \
 					checker.c
 					
 PUSH_SRC		=	algorithm.c \
-					push_swap.c
+					push_swap.c \
+					quicksort.c \
+					sort_mid.c
 
 FUNC_SRC		=	specifier.c \
 					ex_sa.c \
